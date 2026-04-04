@@ -12,7 +12,6 @@
 
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-html, body { overflow-x: hidden; max-width: 100%; }
 
 :root {
   --bg: #0E0E0C;
@@ -169,6 +168,69 @@ nav a.cta-nav:hover { background: var(--text); color: var(--bg); }
   font-size: 14px;
   color: var(--text-dim);
   line-height: 1.4;
+}
+
+/* ── LOGO BAR ── */
+.logo-bar {
+  padding: 3rem 0;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(240,237,230,0.08);
+}
+.logo-bar-label {
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--text-faint);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.logo-bar-track {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+.logo-bar-track .brand-mark {
+  font-family: var(--sans);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #B4B1AA;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  opacity: 0.45;
+  transition: opacity 0.3s;
+  white-space: nowrap;
+  line-height: 1;
+}
+.logo-bar-track .brand-mark:hover {
+  opacity: 0.8;
+}
+.logo-bar-track .brand-mark.serif-mark {
+  font-family: var(--serif);
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: 0.02em;
+  font-size: 1.4rem;
+  font-style: italic;
+}
+.logo-bar-track .brand-logo {
+  height: 30px;
+  opacity: 0.45;
+  transition: opacity 0.3s;
+  filter: grayscale(100%) brightness(1.5);
+}
+.logo-bar-track .brand-logo:hover {
+  opacity: 0.8;
+}
+.logo-bar-track .brand-logo.tall-logo {
+  height: 40px;
+}
+@media (max-width: 768px) {
+  .logo-bar-track { gap: 2rem; }
+  .logo-bar-track .brand-mark { font-size: 1rem; }
+  .logo-bar-track .brand-mark.serif-mark { font-size: 1.15rem; }
 }
 
 /* ── SECTIONS ── */
@@ -419,7 +481,7 @@ footer a:hover { color: var(--accent); }
       <a href="#how" class="nav-link">How it works</a>
       <a href="#who" class="nav-link">Who it's for</a>
       <a href="#about" class="nav-link">About</a>
-      <a href="#" data-cal-link="multiplycmo/15min" data-cal-namespace="15min" data-cal-config='{"layout":"week_view","useSlotsViewOnSmallScreen":"true"}' class="cta-nav">Book a free diagnostic</a>
+      <a href="" data-cal-link="multiplycmo/15min" data-cal-namespace="15min" data-cal-config='{"layout":"week_view","useSlotsViewOnSmallScreen":"true"}' class="cta-nav">Book a free diagnostic</a>
     </div>
   </div>
 </nav>
@@ -430,7 +492,7 @@ footer a:hover { color: var(--accent); }
       <div class="hero-label">Fractional CMO for founder-led SaaS</div>
       <h1>I build your marketing engine<br>and <em>run it.</em></h1>
       <p class="hero-sub">Most fractional CMOs hand you a strategy deck and wish you luck. I build the strategy, the team, the systems, and the campaigns &mdash; then run the whole thing. So you can go back to being the CEO.</p>
-      <a href="#" data-cal-link="multiplycmo/15min" data-cal-namespace="15min" data-cal-config='{"layout":"week_view","useSlotsViewOnSmallScreen":"true"}' class="cta-primary">Book a free 15-min diagnostic</a>
+      <a href="" data-cal-link="multiplycmo/15min" data-cal-namespace="15min" data-cal-config='{"layout":"week_view","useSlotsViewOnSmallScreen":"true"}' class="cta-primary">Book a free 15-min diagnostic</a>
       <a href="#how" class="cta-secondary">See how it works &darr;</a>
     </div>
   </div>
@@ -445,7 +507,7 @@ footer a:hover { color: var(--accent); }
       </div>
       <div class="fade-in">
         <div class="stat-num">10+</div>
-        <div class="stat-label">businesses built from scratch</div>
+        <div class="stat-label">businesses built</div>
       </div>
       <div class="fade-in">
         <div class="stat-num">700+</div>
@@ -455,6 +517,20 @@ footer a:hover { color: var(--accent); }
         <div class="stat-num">$Ms</div>
         <div class="stat-label">in managed ad spend since 1998</div>
       </div>
+    </div>
+  </div>
+</div>
+
+<div class="logo-bar fade-in">
+  <div class="container">
+    <div class="logo-bar-label">Companies I've built from scratch</div>
+    <div class="logo-bar-track">
+      <img src="data:image/png;base64,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" alt="Newton" class="brand-logo tall-logo" />
+      <img src="data:image/png;base64,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" alt="Afterhills" class="brand-logo" />
+      <span class="brand-mark">BACON</span>
+      <span class="brand-mark serif-mark">Olely</span>
+      <span class="brand-mark" style="letter-spacing:0.25em;font-weight:400;font-size:1rem;">MOVERS</span>
+      <img src="data:image/png;base64,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" alt="Neomedia" class="brand-logo tall-logo" />
     </div>
   </div>
 </div>
@@ -479,8 +555,7 @@ footer a:hover { color: var(--accent); }
 <section class="quote-section">
   <div class="container">
     <div class="quote-block fade-in">
-      <blockquote>&ldquo;Most fractional CMOs give you strategy. I give you strategy, systems, team structure, campaigns, and dashboards &mdash; then I run it all week to week. Because at your stage, the plan is worthless without the execution.&rdquo;</blockquote>
-      <cite>&mdash; Liviu, Founder of Multiply</cite>
+      <blockquote>Most fractional CMOs give you strategy. I give you strategy, systems, team structure, campaigns, and dashboards &mdash; then I run it all week to week.<br><br>The plan is worthless without the execution.</blockquote>
     </div>
   </div>
 </section>
@@ -589,7 +664,7 @@ footer a:hover { color: var(--accent); }
       <div class="section-label">Let's talk</div>
       <div class="section-title">Free 15-minute growth diagnostic.</div>
       <p>No pitch. No deck. Just an honest look at your marketing, what's working, what's broken, and what I'd do about it. If I can help, I'll tell you how. If I can't, I'll tell you that too.</p>
-      <a href="#" data-cal-link="multiplycmo/15min" data-cal-namespace="15min" data-cal-config='{"layout":"week_view","useSlotsViewOnSmallScreen":"true"}' class="cta-primary">Book your free diagnostic &rarr;</a>
+      <a href="" data-cal-link="multiplycmo/15min" data-cal-namespace="15min" data-cal-config='{"layout":"week_view","useSlotsViewOnSmallScreen":"true"}' class="cta-primary">Book your free diagnostic &rarr;</a>
     </div>
   </div>
 </section>
